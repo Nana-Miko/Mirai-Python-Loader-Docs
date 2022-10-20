@@ -1,0 +1,10 @@
+site_name: Mirai Python Loader说明文档
+theme: 'material'
+plugins:
+  - search
+  - mkdocstrings
+nav:
+  - 主页: index.md
+  - 安装MPL:
+      - 环境安装: user/environment.md
+      - 使用MPL: user/use.md
