@@ -32,10 +32,15 @@
 
 PluginTask是一个抽象类，你需要实现其抽象方法
 
+**自定义PluginTask**
+
 ```python
 from mplapi.plugin import PluginTask # 导入
 
 class MyTask(PluginTask):
+    
+    def __init__(self, plugin: PyPlugin):
+		super().__init__(plugin) # PluginTask没有无参构造方法，你必须调用其超类构造方法
     
     # 任务的执行体
     async def execute_task(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
@@ -50,7 +55,7 @@ class MyTask(PluginTask):
         pass
 ```
 
-**PluginTask实例化**
+**实例化**
 
 ```python
 class MyPluginClass(PyPlugin):
@@ -58,26 +63,45 @@ class MyPluginClass(PyPlugin):
         task = MyTask(self) # 传入PyPlugin对象进行实例化
 ```
 
-当然，MPL也内置了两个PluginTask的子类
+MPL也内置了两个PluginTask的子类
 
 - GroupTask （群任务）
 - FriendTask （好友任务）
 
 它们都已经实现了`is_task_target`方法
 
-**GroupTask、FriendTask实例化**
+**自定义GroupTask、FriendTask**
 
 ```python
 from mplapi.plugin import FriendTask
 from mplapi.plugin import GroupTask # 导入
 
+class MyGroupTask(GroupTask):
+    async def execute_task(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
+        self.plugin_instance.get_logger().info('群任务执行！')
+
+    async def on_timeout(self, bot: Bot):
+        self.plugin_instance.get_logger().info('群任务超时！')
+
+
+class MyFriendTask(FriendTask):
+    async def execute_task(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
+        self.plugin_instance.get_logger().info('好友任务执行！')
+
+    async def on_timeout(self, bot: Bot):
+        self.plugin_instance.get_logger().info('好友任务超时！')
+```
+
+**实例化**
+
+```python
 class MyPluginClass(PyPlugin):
 
     async def get_group_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
         group: int  # 执行任务的群号
         target: int  # 执行任务的目标qq号
-        group_task = GroupTask(group, self, target)
-        friend_task = FriendTask(target, self)
+        group_task = MyGroupTask(group, self, target)
+        friend_task = MyFriendTask(target, self)
         
 ```
 

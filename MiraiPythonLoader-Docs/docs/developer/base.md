@@ -16,7 +16,7 @@ plugin模块下的PyPlugin类，封装了MPL插件的功能，你需要继承PyP
 
 ![build-class](\developer\img\build-class.png)
 
-在version方法中定义你的插件版本，使用x.y.z规范
+在`version`方法中定义你的插件版本，使用x.y.z规范
 
 ```python
 @property
@@ -24,14 +24,14 @@ def version(self) -> tuple[int, int, int]:
     return 0,0,1
 ```
 
-on_create方法在MPL加载你的插件时调用
+`on_create`方法在MPL加载你的插件时调用
 
 ```python
 def on_create(self):
     self.get_logger().info('已加载我的插件！') # 输出日志到控制台
 ```
 
-每当一个bot登录时，都会调用一次on_login方法，你必须通过Bot对象中的register_plugin方法在这个bot中注册你的插件
+每当一个bot登录时，都会调用一次`on_login`方法，你必须通过Bot对象中的`register_plugin`方法在这个bot中注册你的插件
 
 ```python
 async def on_login(self, bot: Bot):
@@ -39,7 +39,7 @@ async def on_login(self, bot: Bot):
    self.get_logger().info(f'在Bot:{bot.bot_qq} 中注册了我的插件！')
 ```
 
-不管bot何种方式登出（包括被封禁），都会调用on_logout方法
+不管bot何种方式登出（包括被封禁，强制退出mcl），都会调用`on_logout`方法
 
 ```python
 async def on_logout(self, bot: Bot):
@@ -52,7 +52,7 @@ MPL接收的消息发送者可分为三类
 - friend（好友私聊消息）
 - admin（插件管理员的消息）插件管理员将在[Permission]()中说明
 
-在被重写的三个消息接收方法中，实现你的插件功能
+通过实现以下三个方法来实现你的插件功能
 
 ```python
 async def get_group_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):

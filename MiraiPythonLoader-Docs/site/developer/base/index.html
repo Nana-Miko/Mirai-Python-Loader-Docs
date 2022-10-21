@@ -1,0 +1,660 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
+    
+    
+      
+        <title>基本使用 - Mirai Python Loader说明文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mirai Python Loader说明文档" class="md-header__button md-logo" aria-label="Mirai Python Loader说明文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mirai Python Loader说明文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基本使用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mirai Python Loader说明文档" class="md-nav__button md-logo" aria-label="Mirai Python Loader说明文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mirai Python Loader说明文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          安装MPL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安装MPL" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装MPL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/environment/" class="md-nav__link">
+        环境安装
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user/use/" class="md-nav__link">
+        使用MPL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          插件开发
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="插件开发" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          插件开发
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preface/" class="md-nav__link">
+        准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基本使用
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        基本使用
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bot" class="md-nav__link">
+    Bot类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyplugin" class="md-nav__link">
+    PyPlugin类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msg" class="md-nav__link">
+    Msg类
+  </a>
+  
+    <nav class="md-nav" aria-label="Msg类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plainmsg" class="md-nav__link">
+    PlainMsg(文本消息)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagemsg" class="md-nav__link">
+    ImageMsg(图片消息)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msgchain" class="md-nav__link">
+    MsgChain(消息链)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task/" class="md-nav__link">
+        创建插件任务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bot" class="md-nav__link">
+    Bot类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyplugin" class="md-nav__link">
+    PyPlugin类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#msg" class="md-nav__link">
+    Msg类
+  </a>
+  
+    <nav class="md-nav" aria-label="Msg类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plainmsg" class="md-nav__link">
+    PlainMsg(文本消息)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imagemsg" class="md-nav__link">
+    ImageMsg(图片消息)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msgchain" class="md-nav__link">
+    MsgChain(消息链)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>基本使用</h1>
+
+<h2 id="bot">Bot类</h2>
+<p>Bot类是你的插件与mirai（qq）通信的桥梁，由MPL实例化并传递到你的插件中，通过对象方法进行发送消息等交互操作</p>
+<hr />
+<h2 id="pyplugin">PyPlugin类</h2>
+<p>plugin模块下的PyPlugin类，封装了MPL插件的功能，你需要继承PyPlugin类，来定义你的插件</p>
+<p><strong>注意，必须在__init__.py文件中定义你的插件类</strong></p>
+<p>通过重写PyPlugin类的抽象方法，实现插件的功能</p>
+<p><img alt="build-class" src="\developer\img\build-class.png" /></p>
+<p>在<code>version</code>方法中定义你的插件版本，使用x.y.z规范</p>
+<pre><code class="language-python">@property
+def version(self) -&gt; tuple[int, int, int]:
+    return 0,0,1
+</code></pre>
+<p><code>on_create</code>方法在MPL加载你的插件时调用</p>
+<pre><code class="language-python">def on_create(self):
+    self.get_logger().info('已加载我的插件！') # 输出日志到控制台
+</code></pre>
+<p>每当一个bot登录时，都会调用一次<code>on_login</code>方法，你必须通过Bot对象中的<code>register_plugin</code>方法在这个bot中注册你的插件</p>
+<pre><code class="language-python">async def on_login(self, bot: Bot):
+   bot.register_plugin(self) # 注册你的插件到Bot
+   self.get_logger().info(f'在Bot:{bot.bot_qq} 中注册了我的插件！')
+</code></pre>
+<p>不管bot何种方式登出（包括被封禁，强制退出mcl），都会调用<code>on_logout</code>方法</p>
+<pre><code class="language-python">async def on_logout(self, bot: Bot):
+   self.get_logger().info(f'Bot:{bot.bot_qq} 登出！')
+</code></pre>
+<p>MPL接收的消息发送者可分为三类</p>
+<ul>
+<li>group（群聊消息）</li>
+<li>friend（好友私聊消息）</li>
+<li>admin（插件管理员的消息）插件管理员将在<a href="">Permission</a>中说明</li>
+</ul>
+<p>通过实现以下三个方法来实现你的插件功能</p>
+<pre><code class="language-python">async def get_group_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
+   self.get_logger().info(f'收到了来自群{source.group} {source.sender}发送的消息')
+
+async def get_friend_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
+   self.get_logger().info(f'收到了来自好友{source.sender}发送的消息')
+
+async def get_admin_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
+   self.get_logger().info(f'收到了来自管理员{source.sender}发送的消息')
+</code></pre>
+<hr />
+<h2 id="msg">Msg类</h2>
+<p>MPL收发的所有消息，都是Msg类的子类，以下介绍几个常见的子类</p>
+<hr />
+<h3 id="plainmsg">PlainMsg(文本消息)</h3>
+<p>这是一个文本消息，消息的文本存放于PlainMsg类的text字段中</p>
+<p>你可以通过实例化该类，来创建一个文本消息</p>
+<pre><code class="language-python">    bot:Bot # bot为Bot类对象
+    text_msg = msg.PlainMsg('Hello,World') # 创建一个Hello World文本消息
+    bot.send_group_msg(text_msg, group) # 发送该消息至群group
+</code></pre>
+<hr />
+<h3 id="imagemsg">ImageMsg(图片消息)</h3>
+<p>这是一个图片消息</p>
+<p>MPL支持通过url、base64字符串、路径（相对路径指向mcl运行目录，绝对路径指向mcl运行的服务器/主机，因此不推荐使用）来创建图片消息</p>
+<p>请注意，接收的图片消息只有url属性</p>
+<pre><code class="language-python">    bot:Bot # bot为Bot类对象
+    img_msg = msg.ImageMsg('http://image-url', msg.ImageMsg.URL) # 通过url创建一个图片消息
+    bot.send_group_msg(img_msg, group) # 发送该消息至群group
+</code></pre>
+<hr />
+<h3 id="msgchain">MsgChain(消息链)</h3>
+<p>消息可以是文本，也可以是图片，或其他。如果当一个消息既有文本又有图片时，就需要一个载体来包装这个消息，MsgChain就起到了这个载体的作用，它是一个有序的消息集合。</p>
+<p>接收的消息无论如何都会被MsgChain所包装，通过其中的get方法来获取对应的消息</p>
+<pre><code class="language-python">    message: msg.MsgChain  # 接收的消息
+    text_msg_list = message.get_plain_msg()  # 获取消息链中所有的文本消息
+    for text_msg in text_msg_list:  # 遍历所有文本消息
+        text = text_msg.text
+        self.get_logger().info(f'接收到了文本消息:{text}')
+</code></pre>
+<pre><code class="language-python">    bot:Bot # bot为Bot类对象
+    chain = msg.MsgChain() # 创建一个消息链
+    text_msg = msg.PlainMsg('Hello,World') # 创建一个Hello World文本消息
+    img_msg = msg.ImageMsg('http://image-url', msg.ImageMsg.URL) # 通过url创建一个图片消息
+    chain.add_msg(text_msg) # 将文本消息添加到消息链中
+    chain.add_msg(img_msg) # 将图片消息添加到消息链中
+    bot.send_group_msg(chain, group) # 发送该消息链至群group
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../preface/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 准备" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              准备
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../task/" class="md-footer__link md-footer__link--next" aria-label="Next: 创建插件任务" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              创建插件任务
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+    
+  </body>
+</html>
