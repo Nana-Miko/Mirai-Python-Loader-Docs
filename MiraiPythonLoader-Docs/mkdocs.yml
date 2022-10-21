@@ -1,14 +1,42 @@
-site_name: Mirai Python Loader说明文档
-theme: 'material'
+site_name: Mirai Python Loader
+site_description: 说明文档
+site_author: Nana
+repo_url: https://github.com/example/repository/
+theme:
+  name: 'material'
+  language: 'zh'
+  features:
+    - header.autohide
+  palette:
+    - scheme: default
+      primary: cyan
+      accent: cyan
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 切换夜间模式
+    - scheme: slate
+      primary: deep orange
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch
+        name: 切换日间模式
+
+
 plugins:
-  - search
+  - search:
+      lang: ['en','jp']
   - mkdocstrings
 nav:
   - 主页: index.md
-  - 安装MPL:
+  - 使用MPL:
       - 环境安装: user/environment.md
-      - 使用MPL: user/use.md
+      - 启动MPL: user/use.md
+      - 安装插件: user/plugin.md
   - 插件开发:
       - 准备: developer/preface.md
       - 基本使用: developer/base.md
       - 创建插件任务: developer/task.md
+      - 异常捕获: developer/exception.md
+      - 配置: developer/config.md
+      - 连接数据库: developer/db.md
+      - 文件IO: developer/file.md
