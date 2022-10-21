@@ -505,21 +505,21 @@
 <p><strong>注意，必须在__init__.py文件中定义你的插件类</strong></p>
 <p>通过重写PyPlugin类的抽象方法，实现插件的功能</p>
 <p><img alt="build-class" src="\developer\img\build-class.png" /></p>
-<p>在version方法中定义你的插件版本，使用x.y.z规范</p>
+<p>在<code>version</code>方法中定义你的插件版本，使用x.y.z规范</p>
 <pre><code class="language-python">@property
 def version(self) -&gt; tuple[int, int, int]:
     return 0,0,1
 </code></pre>
-<p>on_create方法在MPL加载你的插件时调用</p>
+<p><code>on_create</code>方法在MPL加载你的插件时调用</p>
 <pre><code class="language-python">def on_create(self):
     self.get_logger().info('已加载我的插件！') # 输出日志到控制台
 </code></pre>
-<p>每当一个bot登录时，都会调用一次on_login方法，你必须通过Bot对象中的register_plugin方法在这个bot中注册你的插件</p>
+<p>每当一个bot登录时，都会调用一次<code>on_login</code>方法，你必须通过Bot对象中的<code>register_plugin</code>方法在这个bot中注册你的插件</p>
 <pre><code class="language-python">async def on_login(self, bot: Bot):
    bot.register_plugin(self) # 注册你的插件到Bot
    self.get_logger().info(f'在Bot:{bot.bot_qq} 中注册了我的插件！')
 </code></pre>
-<p>不管bot何种方式登出（包括被封禁），都会调用on_logout方法</p>
+<p>不管bot何种方式登出（包括被封禁，强制退出mcl），都会调用<code>on_logout</code>方法</p>
 <pre><code class="language-python">async def on_logout(self, bot: Bot):
    self.get_logger().info(f'Bot:{bot.bot_qq} 登出！')
 </code></pre>
@@ -529,7 +529,7 @@ def version(self) -&gt; tuple[int, int, int]:
 <li>friend（好友私聊消息）</li>
 <li>admin（插件管理员的消息）插件管理员将在<a href="">Permission</a>中说明</li>
 </ul>
-<p>在被重写的三个消息接收方法中，实现你的插件功能</p>
+<p>通过实现以下三个方法来实现你的插件功能</p>
 <pre><code class="language-python">async def get_group_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
    self.get_logger().info(f'收到了来自群{source.group} {source.sender}发送的消息')
 
