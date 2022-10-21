@@ -45,7 +45,7 @@ adapterSettings:
 
 若出现如下字样，表明mah的端口被占用，请修改端口号后重新尝试
 
-![mah-success](/user/img/mah-fail.png)
+![mah-fail](/user/img/mah-fail.png)
 
 ------
 

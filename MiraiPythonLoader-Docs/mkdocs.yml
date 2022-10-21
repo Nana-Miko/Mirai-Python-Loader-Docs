@@ -8,3 +8,7 @@ nav:
   - 安装MPL:
       - 环境安装: user/environment.md
       - 使用MPL: user/use.md
+  - 插件开发:
+      - 准备: developer/preface.md
+      - 基本使用: developer/base.md
+      - 创建插件任务: developer/task.md
