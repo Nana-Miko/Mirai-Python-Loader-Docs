@@ -25,3 +25,7 @@ class MyPluginClass(PyPlugin):
         db_conn.commit()
         db_conn.close() # 切记最后断开数据库连接
 ```
+
+------
+
+数据库保存目录：`MPL目录/data/插件名/`

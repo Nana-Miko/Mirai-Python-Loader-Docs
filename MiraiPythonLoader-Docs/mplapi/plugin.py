@@ -43,13 +43,19 @@ class PyPlugin(PluginExceptionCatcher, metaclass=ABCMeta):
     def handle_exception(self, e: BaseException):
         pass
 
-    plugin_name = None
-
     @abstractmethod
-    def get_version(self) -> tuple[int, int, int]:
+    @property
+    def version(self) -> tuple[int, int, int]:
         """
-        返回插件的版本号，采用x.y.z规范
+        插件的版本号，采用x.y.z规范
         :return:(x,y,z)
+        """
+        pass
+
+    def get_plugin_name(self) -> str:
+        """
+        获取插件名
+        :return:
         """
         pass
 

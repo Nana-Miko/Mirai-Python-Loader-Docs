@@ -14,7 +14,7 @@ plugin模块下的PyPlugin类，封装了MPL插件的功能，你需要继承PyP
 
 通过重写PyPlugin类的抽象方法，实现插件的功能
 
-![build-class](img/build-class.png)
+![build-class](/img/build-class.png)
 
 在`version`方法中定义你的插件版本，使用x.y.z规范
 
@@ -50,7 +50,7 @@ MPL接收的消息发送者可分为三类
 
 - group（群聊消息）
 - friend（好友私聊消息）
-- admin（插件管理员的消息）插件管理员将在[Permission]()中说明
+- admin（插件管理员的消息）插件管理员将在[Permission](../permission)中说明
 
 通过实现以下三个方法来实现你的插件功能
 

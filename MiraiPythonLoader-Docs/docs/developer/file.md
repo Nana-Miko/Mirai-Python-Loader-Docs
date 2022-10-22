@@ -21,3 +21,7 @@ class MyPluginClass(PyPlugin):
             with open(file_path, 'a', encoding='utf-8') as file:
                 file.write(plain_msg.text+'\n')
 ```
+
+------
+
+文件保存目录：`MPL目录/file/插件名/`

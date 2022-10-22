@@ -34,9 +34,17 @@ nav:
       - 安装插件: user/plugin.md
   - 插件开发:
       - 准备: developer/preface.md
-      - 基本使用: developer/base.md
+      - 基本开发: developer/base.md
       - 创建插件任务: developer/task.md
       - 异常捕获: developer/exception.md
+      - 日志对象: developer/logger.md
       - 配置: developer/config.md
       - 连接数据库: developer/db.md
       - 文件IO: developer/file.md
+      - 权限管理: developer/permission.md
+      - 开发包模块详情:
+          - __init__: developer/moudle/__init__.md
+          - plugin: developer/moudle/plugin.md
+          - mirai: developer/moudle/mirai.md
+          - msg: developer/moudle/msg.md
+          - config: developer/moudle/config.md

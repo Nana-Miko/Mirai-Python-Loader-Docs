@@ -41,11 +41,11 @@ adapterSettings:
 
 出现如下字样时，表明mah启动成功
 
-![mah-success](img/mah-success.png)
+![mah-success](/img/mah-success.png)
 
 若出现如下字样，表明mah的端口被占用，请修改端口号后重新尝试
 
-![mah-fail](img/mah-fail.png)
+![mah-fail](/img/mah-fail.png)
 
 ------
 

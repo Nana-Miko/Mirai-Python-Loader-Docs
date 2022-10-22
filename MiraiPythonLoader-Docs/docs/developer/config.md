@@ -51,3 +51,7 @@ class MyPluginClass(PyPlugin):
 更改完后请一定要使用`set_config`方法保存你更改后的配置
 
 否则当MPL重启后，配置文件将不会被改变
+
+------
+
+配置文件目录：`MPL目录/conf/插件名/`
