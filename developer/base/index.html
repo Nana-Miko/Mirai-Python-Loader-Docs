@@ -17,7 +17,7 @@
     
     
       
-        <title>基本使用 - Mirai Python Loader</title>
+        <title>基本开发 - Mirai Python Loader</title>
       
     
     
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              基本使用
+              基本开发
             
           </span>
         </div>
@@ -378,12 +378,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          基本使用
+          基本开发
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        基本使用
+        基本开发
       </a>
       
         
@@ -490,6 +490,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../logger/" class="md-nav__link">
+        日志对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../config/" class="md-nav__link">
         配置
       </a>
@@ -521,6 +535,123 @@
       <a href="../file/" class="md-nav__link">
         文件IO
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permission/" class="md-nav__link">
+        权限管理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_10" type="checkbox" id="__nav_3_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_10">
+          开发包模块详情
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发包模块详情" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_10">
+          <span class="md-nav__icon md-icon"></span>
+          开发包模块详情
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moudle/__init__/" class="md-nav__link">
+        __init__
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moudle/plugin/" class="md-nav__link">
+        plugin
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moudle/mirai/" class="md-nav__link">
+        mirai
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moudle/msg/" class="md-nav__link">
+        msg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moudle/config/" class="md-nav__link">
+        config
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -624,7 +755,7 @@
   </a>
 
 
-  <h1>基本使用</h1>
+  <h1>基本开发</h1>
 
 <h2 id="bot">Bot类</h2>
 <p>Bot类是你的插件与mirai（qq）通信的桥梁，由MPL实例化并传递到你的插件中，通过对象方法进行发送消息等交互操作</p>
@@ -633,7 +764,7 @@
 <p>plugin模块下的PyPlugin类，封装了MPL插件的功能，你需要继承PyPlugin类，来定义你的插件</p>
 <p><strong>注意，必须在__init__.py文件中定义你的插件类</strong></p>
 <p>通过重写PyPlugin类的抽象方法，实现插件的功能</p>
-<p><img alt="build-class" src="img/build-class.png" /></p>
+<p><img alt="build-class" src="/img/build-class.png" /></p>
 <p>在<code>version</code>方法中定义你的插件版本，使用x.y.z规范</p>
 <pre><code class="language-python">@property
 def version(self) -&gt; tuple[int, int, int]:
@@ -656,7 +787,7 @@ def version(self) -&gt; tuple[int, int, int]:
 <ul>
 <li>group（群聊消息）</li>
 <li>friend（好友私聊消息）</li>
-<li>admin（插件管理员的消息）插件管理员将在<a href="">Permission</a>中说明</li>
+<li>admin（插件管理员的消息）插件管理员将在<a href="../permission">Permission</a>中说明</li>
 </ul>
 <p>通过实现以下三个方法来实现你的插件功能</p>
 <pre><code class="language-python">async def get_group_msg(self, bot: Bot, source: msg.Source, message: msg.MsgChain):
